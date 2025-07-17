@@ -37,9 +37,7 @@ app.use(
 );
 app.use(express.json());
 app.use(cors(corsOption));
-app.use("/", (req, res) => {
-  res.json({ isWoring: "yes" });
-});
+
 app.use("/auth", auth);
 app.use("/products", products);
 app.use("/orders", orders);
