@@ -10,10 +10,9 @@ db();
 const port = process.env.PORT;
 const corsOption = {
   origin: "*",
-  Credential: true,
-  optionSuccessStatus: 200,
+  credentials: true,
+  optionsSuccessStatus: 200,
 };
-
 const auth = require("./routes/auth");
 const orders = require("./routes/orders");
 const products = require("./routes/products");
@@ -37,6 +36,7 @@ app.use(
 );
 app.use(express.json());
 app.use(cors(corsOption));
+app.options("*", cors(corsOption));
 
 app.use("/auth", auth);
 app.use("/products", products);
